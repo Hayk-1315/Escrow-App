@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+#root {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  position: relative;
+  background-color: #cbc7c3;
+  display: flex;
+  font-family: "Quicksand";
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.navbar {
+  position: relative;
+  height: 50px;
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 2000px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+  background-color: #cbc7c3
+}
+
+.navbar h1 {
+  color: #212121;
+  margin: 0;
+  flex: 1;
+  font-size: 30px;
+  border-bottom-width: 0px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #212121;
+  padding: 30px;
+  font-size: 22px;
+  flex: 1;
+  text-align: right;
+}
+
+.links a:hover {
+  color: #ffffff;
+}
+
+.contract {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-contract {
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  display: inline-block;
+  border: solid #ffffff;
+  background-color: #616263;
+}
+
+.existing-contracts {
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-top: 50px;
+  width: 600px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  display: inline-block;
+  /* border: solid #ffffff; */
+  background-color: #616263;
+}
+
+h1 {
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  color: #e1e1e1;
+  margin: 20px;
+  font-size: 20px;
+}
+
+input[type="text"] {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  color: #484848;
+  border: none;
+  margin-top: 5px;
+  outline: 2px solid rgb(234, 234, 234);
+}
+
+.button {
+  background-color: #212121;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+  padding: 15px 25px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #7f8292;
+}
+
+.existing-contract ul {
+  padding: 10px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: solid #ffffff;
+  background-color: #cbc7c3;
+  color: #212121;
+  font-size: 17px;
+}
+
+.existing-contract ul>li {
+  list-style: none;
+  display: flex;
+  margin: 10px;
+}
+
+.existing-contract ul>li>div {
+  margin: 0 5px;
+}
+
+.existing-contract ul>li> :first-child {
+  font-weight: bold;
+}
+
+.existing-contract .complete {
+  color: #5aa75a;
+  text-align: center;
+}
+
+.contract-storage {
+  width: 1200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contract-storage h1 {
+  border-bottom-width: 0px;
+  font-size: 25px;
+  color: #212121;
+}
+
+.contract-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #212121;
+}
+
+.contract-header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #212121;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.contract-box {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #616263;
+  font-size: 18px;
+  color: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  color: #000;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  /* Add transform property for centering */
+  transform: translateX(-50%);
+  /* Center horizontally */
+}
+
+.contract-box:hover .tooltip {
+  opacity: 1;
+  transform: translate(-95%, -110%);
+  /* Center horizontally and vertically */
+}
+
+.metamask-button {
+  background-color: #212121;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+  padding: 15px 25px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 0px;
+}
+
+.metamask-button:hover {
+  background-color: #7f8292;
+}

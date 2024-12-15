@@ -1,0 +1,27 @@
+{
+  "name": "escrow-hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "^2.19.2"
+  },
+  "browserslist": [
+    "> 5%"
+  ],
+  "dependencies": {
+    "bignumber": "^1.1.0",
+    "dotenv": "^16.4.7",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.21.1"
+  }
+}
