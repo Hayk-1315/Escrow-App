@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "EscrowApp",
+  "name": "Escrow App — Secure Ethereum Agreements",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +18,11 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "./",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0f172a", 
+  "background_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "description": "A decentralized Escrow DApp to create, approve and manage smart contracts securely on Ethereum."
 }
