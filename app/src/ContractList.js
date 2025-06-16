@@ -1,47 +1,39 @@
 const ContractList = ({ contracts }) => {
-    const Tooltip = ({ text }) => {
-        return (
-          <span className="tooltip">
-            {text}
-          </span>
-        );
-      };
-      
-    const sliceAddress = (address, label) => {
-        const visible = address.slice(0, 8);
-        const hidden = '...'; 
-        const tooltipText =  `${visible}${hidden}${address.slice(-8)}`;
+  const formatAddress = (address) =>
+    `${address.slice(0, 6)}...${address.slice(-4)}`;
 
-        return label === 'Depositor' ? (
-            <span>
-                {tooltipText}
-                <Tooltip text={tooltipText} />
-            </span>
-        ) : tooltipText;
-    };
-
-    return (
-        <div className="contract-list">
-            {contracts.length > 0 && (
-                <div className="contract-header">
-                    <p>Depositor</p>
-                    <p>Arbiter</p>
-                    <p>Beneficiary</p>
-                    <p>Value</p>
-                </div>
+  return (
+    <div className="space-y-4 max-w-4xl mx-auto">
+      {contracts.map((contract) => (
+        <div
+          key={contract.address}
+          className="bg-gray-900/90 border border-electric shadow-lg rounded-xl p-9 transition duration-300"
+        >
+          <p><strong className="text-lava">Address:</strong> {contract.address}</p>
+          <p><strong className="text-lava">Depositor:</strong> {contract.depositor}</p>
+          <p><strong className="text-lava">Arbiter:</strong> {contract.arbiter}</p>
+          <p><strong className="text-lava">Beneficiary:</strong> {contract.beneficiary}</p>
+          <p><strong className="text-lava">Value (on-chain):</strong> {contract.onchain?.balance || contract.value} ETH</p>
+          <p><strong className="text-lava">Duration:</strong> {contract.duration} day </p>
+        
+         {contract.onchain && ( 
+              <>
+                <p><strong className="text-lava">Created At:</strong> {new Date(contract.onchain.createdAt * 1000).toLocaleString()}</p>
+                <p><strong className="text-lava">Expires At:</strong> {new Date(contract.onchain.expiresAt * 1000).toLocaleString()}</p>
+                <p>
+                  <strong className="text-lava">Status:</strong>{" "}
+                  {contract.onchain.isApproved
+                    ? <span className="text-green-400">Approved</span>
+                    : contract.onchain.isCancelled
+                    ? <span className="text-red-400">Cancelled</span>
+                    : <span className="text-yellow-400">Pending</span>}
+                </p>
+              </>
             )}
-
-            {contracts.map((contract) => (
-                <div className="contract-box" key={contract.id}>
-                    <p>{sliceAddress(contract.depositor, 'Depositor')}</p>
-                    <p>{sliceAddress(contract.arbiter, 'Arbiter')}</p>
-                    <p>{sliceAddress(contract.beneficiary, 'Beneficiary')}</p>
-                    <p>{contract.value}</p>
-                </div>
-            ))}
-        </div>
-    );
-}
-
+            </div>
+      ))}
+    </div>
+  );
+};
 
 export default ContractList;
