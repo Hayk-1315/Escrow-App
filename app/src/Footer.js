@@ -4,7 +4,7 @@ const Footer = () => (
       <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} EscrowApp. All rights reserved.</p>
       <div className="flex gap-4">
         <a
-          href="https://github.com/tu_usuario/tu_repo"
+          href="https://github.com/Hayk-1315"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-white transition"
@@ -12,7 +12,7 @@ const Footer = () => (
           GitHub
         </a>
         <a
-          href="https://linkedin.com/in/tu_linkedin"
+          href="https://www.linkedin.com/in/albert-khudaverdyan-656902253/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-white transition"

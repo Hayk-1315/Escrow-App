@@ -7,8 +7,8 @@ Escrow App is a fully functional decentralized application (dApp) that simulates
 ## 🚀 Live Demo
 
 🔗 The app is deployed on:
-- **Frontend (Vercel):** _to be added_
-- **Backend (Render):** _to be added_
+- **Frontend (Vercel):** https://escrow-app-blue.vercel.app
+- **Backend (Render):**  https://escrow-backend-nbkb.onrender.com
 
 > The app runs on the **Sepolia Ethereum testnet**.
 
@@ -65,7 +65,7 @@ The smart contract and app have been **extensively tested manually**:
 1. **Clone the repo**
 
 ```bash
-git clone https://github.com/your-username/Escrow-app.git
+git clone https://github.com/Hayk-1315/Escrow-App.git
 cd Escrow-app
 Install dependencies
 

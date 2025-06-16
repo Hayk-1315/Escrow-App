@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ walletAddress, setWalletAddress }) => {
   const [sessionExpired, setSessionExpired] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const hasConnectedOnce = useRef(false);
 
   useEffect(() => {
@@ -113,38 +114,93 @@ const Navbar = ({ walletAddress, setWalletAddress }) => {
   }, [sessionExpired]);
 
 return (
-  <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-gray-900 shadow-lg border-b border-blue-700 font-poppins">
-    <h1 className="text-2xl font-bold tracking-wide text-orange-500 drop-shadow-md">EscrowApp</h1>
+  <nav className="fixed top-0 w-full z-50 bg-gray-900 shadow-lg border-b border-blue-700 font-poppins">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <h1 className="text-2xl font-bold tracking-wide text-orange-500 drop-shadow-md">EscrowApp</h1>
 
-    <div className="flex items-center gap-6 text-sm font-medium">
-      <Link
-        to="/pending"
-        className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
-      >
-        Pending Contracts
-      </Link>
-      <Link
-        to="/approved"
-        className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
-      >
-        Approved Contracts
-      </Link>
-      <Link
-        to="/"
-        className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
-      >
-        New Escrow
-      </Link>
+      <div className="block lg:hidden">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-gray-300 hover:text-blue-400 focus:outline-none focus:text-blue-400"
+        >
+          <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path
+              fillRule="evenodd"
+              d="M4 5h16M4 12h16M4 19h16"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
 
-      <button
-        onClick={connectWallet}
-        className={`${
-          walletAddress ? 'bg-green-500 hover:bg-green-600' : 'bg-orange-400 hover:bg-orange-500'
-        } text-black font-semibold px-4 py-2 rounded-lg shadow-md transition-colors duration-200`}
-      >
-        <span title={walletAddress || ""}>{buttonText}</span>
-      </button>
+      <div className="hidden lg:flex items-center gap-6 text-sm font-medium">
+        <Link
+          to="/pending"
+          className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
+        >
+          Pending Contracts
+        </Link>
+        <Link
+          to="/approved"
+          className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
+        >
+          Approved Contracts
+        </Link>
+        <Link
+          to="/"
+          className="text-gray-300 hover:text-blue-400 transition duration-300 font-medium tracking-wide"
+        >
+          New Escrow
+        </Link>
+
+        <button
+          onClick={connectWallet}
+          className={`${
+            walletAddress ? 'bg-green-500 hover:bg-green-600' : 'bg-orange-400 hover:bg-orange-500'
+          } text-black font-semibold px-4 py-2 rounded-lg shadow-md transition-colors duration-200`}
+        >
+          <span title={walletAddress || ""}>{buttonText}</span>
+        </button>
+      </div>
     </div>
+
+    {/* Mobile menu */}
+    {menuOpen && (
+      <div className="lg:hidden px-4 pb-4 space-y-2">
+        <Link
+          to="/pending"
+          className="block text-gray-300 hover:text-blue-400"
+          onClick={() => setMenuOpen(false)}
+        >
+          Pending Contracts
+        </Link>
+        <Link
+          to="/approved"
+          className="block text-gray-300 hover:text-blue-400"
+          onClick={() => setMenuOpen(false)}
+        >
+          Approved Contracts
+        </Link>
+        <Link
+          to="/"
+          className="block text-gray-300 hover:text-blue-400"
+          onClick={() => setMenuOpen(false)}
+        >
+          New Escrow
+        </Link>
+        <button
+          onClick={() => {
+            connectWallet();
+            setMenuOpen(false);
+          }}
+          className={`${
+            walletAddress ? 'bg-green-500 hover:bg-green-600' : 'bg-orange-400 hover:bg-orange-500'
+          } w-full text-black font-semibold px-4 py-2 rounded-lg shadow-md transition-colors duration-200`}
+        >
+          <span title={walletAddress || ""}>{buttonText}</span>
+        </button>
+      </div>
+    )}
 
     {sessionExpired && (
       <div className="absolute top-full right-4 mt-2 bg-red-600 text-white text-xs px-4 py-2 rounded-md shadow-md animate-fade-in-out z-50">
