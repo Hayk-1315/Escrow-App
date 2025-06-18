@@ -51,10 +51,12 @@ const ApprovedContractsPage = ({ walletAddr  }) => {
     fetchContracts();
   }, []);
 
-  return (
-  <div className="pt-24 px-6 text-white font-poppins min-h-screen flex flex-col items-center">
+ return (
+  <div className="pt-24 px-4 sm:px-6 text-white font-poppins min-h-screen flex flex-col items-center">
     <h2 className="text-2xl font-bold mb-6 text-electric text-center">Approved Contracts</h2>
-    <ContractList contracts={contracts} />
+    <div className="w-full max-w-2xl">
+      <ContractList contracts={contracts} />
+    </div>
   </div>
 );
 };

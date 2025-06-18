@@ -123,13 +123,7 @@ return (
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-gray-300 hover:text-blue-400 focus:outline-none focus:text-blue-400"
         >
-          <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-            <path
-              fillRule="evenodd"
-              d="M4 5h16M4 12h16M4 19h16"
-              clipRule="evenodd"
-            />
-          </svg>
+          ☰
         </button>
       </div>
 
