@@ -1,6 +1,30 @@
 {
   "toBeApproved": [
-    {}
+    {},
+    {
+      "depositor": "0x1076f189687bfe1b0a8c632098c45b9e052fac45",
+      "arbiter": "0x648504EBcEf6089e9f386aC3F2139ed25de9162B",
+      "beneficiary": "0xe02c543D4e8C89AB1F76b414Fc3c75adC44cEc2a",
+      "value": "0.01",
+      "duration": "7",
+      "address": "0x719995970b7AE7157F4B4ec1c7b9D8D4A551a41A"
+    },
+    {
+      "depositor": "0x1076f189687bfe1b0a8c632098c45b9e052fac45",
+      "arbiter": "0x648504EBcEf6089e9f386aC3F2139ed25de9162B",
+      "beneficiary": "0xe02c543D4e8C89AB1F76b414Fc3c75adC44cEc2a",
+      "value": "0.01",
+      "duration": "7",
+      "address": "0x7ef629EF114Af2315a324f260EF4736094c7853d"
+    },
+    {
+      "depositor": "0x1076f189687bfe1b0a8c632098c45b9e052fac45",
+      "arbiter": "0x648504EBcEf6089e9f386aC3F2139ed25de9162B",
+      "beneficiary": "0xe02c543D4e8C89AB1F76b414Fc3c75adC44cEc2a",
+      "value": "0.01",
+      "duration": "7",
+      "address": "0x42E0FD63fe25898C3aa1D5B62F863236bFB9a77F"
+    }
   ],
   "approvedContracts": [
     {

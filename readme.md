@@ -124,6 +124,15 @@ Search/sort/filter for contract views
 
 Optional GraphQL integration for better indexing
 
+ℹ️ Notes on Backend Persistence
+This project uses lowdb as a lightweight JSON-based database, hosted on Render. While fully functional, it does not include a persistent external database.
+
+As a result, any escrow contracts created or approved during use will be lost when the Render server restarts, which may happen due to inactivity, redeployment, or updates. After a restart, the server reloads the initial db.json file stored in the repository, which contains a predefined set of contracts for demonstration purposes.
+
+This limitation is intentional, given that the project's main purpose is to showcase on-chain integration, smart contract logic, and fullstack dApp development, rather than to provide permanent data storage.
+
+A future version could easily integrate a persistent solution like MongoDB Atlas or PostgreSQL for production-grade storage.
+
 
 📚 License
 MIT – feel free to fork, test, or adapt for your own use.
