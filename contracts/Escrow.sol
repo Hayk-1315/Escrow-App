@@ -9,6 +9,7 @@ contract Escrow {
     address public arbiter;
     address public beneficiary;
     address public depositor;
+    uint public originalDeposit;
 
     uint public createdAt;
     uint public expiresAt;
@@ -41,6 +42,7 @@ contract Escrow {
         arbiter = _arbiter;
         beneficiary = _beneficiary;
         depositor = msg.sender;
+        originalDeposit = msg.value;
         createdAt = block.timestamp;
         expiresAt = block.timestamp + _durationSeconds;
     }
@@ -80,6 +82,7 @@ contract Escrow {
         bool _isCancelled,
         uint _createdAt,
         uint _expiresAt
+        
     ) {
         return (
             depositor,

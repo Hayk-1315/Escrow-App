@@ -17,6 +17,12 @@ const ApprovedContractsPage = ({ walletAddr  }) => {
         backendData.map(async (c) => {
           try {
             const instance = new ethers.Contract(c.address, Escrow.abi, provider);
+            let originalDeposit = null;
+          try {
+             originalDeposit = await instance.originalDeposit(); // Solo funcionará en contratos nuevos
+              } catch (err) {
+              console.warn(`originalDeposit not available for ${c.address}`);
+              }
             const [
               depositor,
               arbiter,
@@ -32,11 +38,13 @@ const ApprovedContractsPage = ({ walletAddr  }) => {
               ...c,
               onchain: {
                 balance: ethers.utils.formatEther(balance),
+                originalDeposit: originalDeposit ? ethers.utils.formatEther(originalDeposit) : null,
                 isApproved,
                 isCancelled,
                 createdAt,
                 expiresAt
-              }
+              },
+    
             };
           } catch (err) {
             console.warn(`Could not read on-chain data for ${c.address}`);

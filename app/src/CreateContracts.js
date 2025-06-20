@@ -4,6 +4,7 @@ import deploy from './deploy';
 import Escrow from './Escrow';
 import { addNewContract } from './api';
 
+
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 export async function approve(escrowContract, signer) {
@@ -84,6 +85,21 @@ const CreateContracts = ({ walletAddr }) => {
 
   return (
     <div className="flex flex-col items-center mt-24 px-4 py-6 text-white space-y-12 min-h-screen">
+
+   {/* Imagen izquierda (solo escritorio) */}
+    <img 
+      src="/Afterlife.jpg" 
+      alt="Escrow Left"
+      className="hidden md:block absolute left-10 top-1/4 w-64 opacity-90 rounded-lg shadow-lg transform -translate-y-[30%]"
+    />
+
+    {/* Imagen derecha (solo escritorio) */}
+    <img 
+      src="/Afterlife.jpg" 
+      alt="Escrow Right"
+      className="hidden md:block absolute right-10 top-1/4 w-64 opacity-90 rounded-lg shadow-lg transform -translate-y-[50%]"
+    />
+
     <div className="bg-gray-800/90 p-8 rounded-2xl shadow-lg w-full max-w-xl border border-blue-700/40 backdrop-blur">
       <h2 className="text-2xl font-semibold mb-6 text-center text-blue-400">Create New Escrow</h2>
       <form onSubmit={handleSubmit} className="space-y-4">

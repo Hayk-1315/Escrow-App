@@ -13,7 +13,10 @@ const ContractList = ({ contracts }) => {
         <p><strong className="text-lava">Depositor:</strong> {contract.depositor}</p>
         <p><strong className="text-lava">Arbiter:</strong> {contract.arbiter}</p>
         <p><strong className="text-lava">Beneficiary:</strong> {contract.beneficiary}</p>
-        <p><strong className="text-lava">Value (on-chain):</strong> {contract.onchain?.balance || contract.value} ETH</p>
+        {contract.onchain && contract.onchain.originalDeposit? 
+            <p><strong className="text-lava">Original Deposit:</strong> {contract.onchain.originalDeposit} ETH</p>
+            :<p><strong className="text-lava">Contract value:</strong> {contract.value} ETH</p>}
+        <p><strong className="text-lava">Current balance (on-chain):</strong> {contract.onchain.balance} ETH</p>   
         <p><strong className="text-lava">Duration:</strong> {contract.duration} day</p>
 
         {contract.onchain && (
