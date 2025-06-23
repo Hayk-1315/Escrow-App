@@ -70,7 +70,6 @@ The smart contract and dApp have been **extensively tested**:
 
 After cloning the repository and installing the dependencies:
 
-```bash
 npm install
 npx hardhat test
 If all tests pass successfully, you'll see output like:
@@ -87,6 +86,7 @@ Escrow Contract
 7 passing
 
 ---
+
 
 ## 🛠️ How to Run Locally
 
