@@ -87,17 +87,15 @@ Escrow Contract
 
 ---
 
-
+```bash
 ## 🛠️ How to Run Locally
 
 1. **Clone the repo**
 
-```bash
 git clone https://github.com/Hayk-1315/Escrow-App.git
 cd Escrow-app
 Install dependencies
 
-bash
 
 # Frontend
 cd app
@@ -108,20 +106,14 @@ cd ../server
 npm install
 Create .env file
 
-bash
-
 # Backend
 Run backend
-
-bash
 
 cd server
 npm run dev
 
 # Frontend
 Run frontend
-
-bash
 
 cd ../app
 npm run dev
