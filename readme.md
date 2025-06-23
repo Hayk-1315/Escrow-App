@@ -51,12 +51,40 @@ Escrow App is a fully functional decentralized application (dApp) that simulates
 
 ## 🧪 Testing
 
-The smart contract and app have been **extensively tested manually**:
-- Tested with **multiple MetaMask accounts** and **different browsers**
-- Verified full contract lifecycle: deploy → approve/cancel → state sync
-- All tests and interactions have been conducted on the **Sepolia testnet**
+The smart contract and dApp have been **extensively tested**:
+- Tested manually with multiple MetaMask accounts and different browsers
+- Validated the full contract lifecycle on **Sepolia testnet** (deploy → approve/cancel → state updates)
+- Includes an automated test suite powered by **Hardhat** to verify all edge cases and expected behaviors
 
-> Future improvements may include automated unit testing with Hardhat.
+### ✅ What’s Covered by the Tests
+
+- ✅ **Deployment validation** — Confirms the contract is deployed with the correct arbiter, depositor, beneficiary, and expiry time.
+- ✅ **Approval flow** — Only the arbiter can call `approve()`. Tests verify successful approval, event emission, and state updates.
+- ✅ **Cancellation flow** — Only the arbiter can call `cancel()`. Tests verify successful cancellation, event emission, and correct refunding of the depositor.
+- ✅ **Expiry behavior** — Demonstrates that after the expiry time passes, the arbiter cannot approve the escrow.
+- ✅ **Access control** — Tests that non-arbiters cannot call `approve()` or `cancel()`.
+- ✅ **Info retrieval** — Confirms `getInfo()` returns the correct data structure.
+- ✅ **Double execution prevention** — Confirms that the contract cannot be approved or canceled more than once.
+
+### 🧪 Running the Tests
+
+After cloning the repository and installing the dependencies:
+
+```bash
+npm install
+npx hardhat test
+If all tests pass successfully, you'll see output like:
+
+Escrow Contract
+  ✔ Should deploy with correct data (69ms)
+  ✔ Should allow arbiter to approve and emit event (88ms)
+  ✔ Should not allow non-arbiter to approve (70ms)
+  ✔ Should allow arbiter to cancel and emit event (58ms)
+  ✔ Should not allow double cancellation or approval (51ms)
+  ✔ Should respect expiration time for approval
+  ✔ getInfo() returns expected data
+
+7 passing
 
 ---
 
@@ -118,7 +146,6 @@ Cancelled(uint amount, uint timestamp)
 Tracks createdAt, expiresAt, and internal flags
 
 📌 Future Improvements
-Add unit tests for Escrow.sol using Hardhat or Foundry
 
 Search/sort/filter for contract views
 
