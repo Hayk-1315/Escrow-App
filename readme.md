@@ -70,6 +70,7 @@ The smart contract and dApp have been **extensively tested**:
 
 After cloning the repository and installing the dependencies:
 
+```bash
 npm install
 npx hardhat test
 If all tests pass successfully, you'll see output like:
@@ -85,10 +86,8 @@ Escrow Contract
 
 7 passing
 
----
 
-```bash
-## 🛠️ How to Run Locally
+🛠️ How to Run Locally
 
 1. **Clone the repo**
 
@@ -121,42 +120,34 @@ npm run dev
 Make sure MetaMask is connected to Sepolia testnet
 
 🧱 Smart Contract Details
+
 Constructor accepts arbiter, beneficiary, duration
-
 Deposit made at deployment time by depositor
-
 approve() function callable by arbiter — transfers ETH to beneficiary
-
 cancel() callable by arbiter — refunds depositor
-
 Emits events:
-
 Approved(uint amount, uint timestamp)
-
 Cancelled(uint amount, uint timestamp)
-
 Tracks createdAt, expiresAt, and internal flags
 
 📌 Future Improvements
 
 Search/sort/filter for contract views
-
 Optional GraphQL integration for better indexing
 
 ℹ️ Notes on Backend Persistence
+
 This project uses lowdb as a lightweight JSON-based database, hosted on Render. While fully functional, it does not include a persistent external database.
-
 As a result, any escrow contracts created or approved during use will be lost when the Render server restarts, which may happen due to inactivity, redeployment, or updates. After a restart, the server reloads the initial db.json file stored in the repository, which contains a predefined set of contracts for demonstration purposes.
-
 This limitation is intentional, given that the project's main purpose is to showcase on-chain integration, smart contract logic, and fullstack dApp development, rather than to provide permanent data storage.
-
 A future version could easily integrate a persistent solution like MongoDB Atlas or PostgreSQL for production-grade storage.
 
-
 📚 License
+
 MIT – feel free to fork, test, or adapt for your own use.
 
 👤 Author
+
 Built with care by Albert Khudaverdyan
 
 LinkedIn: https://www.linkedin.com/in/albert-khudaverdyan-656902253/
